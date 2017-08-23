@@ -8,7 +8,7 @@ Copy to the home folder and load the docker by running the following command
 
 		sudo docker load --input multichaindocker
 		
-![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d29.png)
+![alt-tag](https://github.com/AravindNico/blockchain_agri_usecase/blob/master/screenshots/d29.png)
 
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d30.png)		
 
@@ -55,7 +55,7 @@ Run <strong>cd</strong> in each container.
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d3.png)
 
 ### Step 4 : 
-Clone the [repo](https://github.com/rajeevbrahma/temprepo.git) in three containers.
+Clone the [blockchain_agri_usecase repository](https://github.com/AravindNico/blockchain_agri_usecase.git) in three containers.
 
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d4.png)
 
