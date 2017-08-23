@@ -50,12 +50,12 @@ Open three terminals and run the docker image in three terminals.
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d2.png)
 
 ### Step 3 : 
-run cd in each container.
+Run <strong>cd</strong> in each container.
 
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d3.png)
 
 ### Step 4 : 
-clone the [repo](https://github.com/rajeevbrahma/temprepo.git) in three containers.
+Clone the [repo](https://github.com/rajeevbrahma/temprepo.git) in three containers.
 
 ![alt-tag](https://github.com/rajeevbrahma/temprepo/blob/master/screenshots/d4.png)
 
