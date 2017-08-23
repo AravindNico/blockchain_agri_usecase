@@ -53,7 +53,7 @@ On successful Decode Exchange creation , WAREHOUSE-RETAILSTORE arrow icon turns 
     Click on the "Get Updated Bal" button under Asset Processing heading to get the upated balances of each asset
     
 ### Step 10: Delete chain
-To delete the chain , execute [this](https://github.com/rajeevbrahma/temprepo/blob/master/deletechain.sh) file in the root directory of this repository
+To delete the chain , execute [this](https://github.com/AravindNico/blockchain_agri_usecase/blob/master/deletechain.sh) file in the root directory of this repository
 
         sh deletechain.sh
     
