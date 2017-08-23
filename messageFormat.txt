@@ -1,0 +1,581 @@
+Channels Used
+==============
+	
+	1.farmland
+	2.warehouse
+	3.retailstore
+
+Channel Description
+====================
+	
+	1.Farmland - Send/Receive data regarding farmland asset issue , updated asset balances and create exchange procedure
+
+	2.Warehouse - Send/Receive data regarding warehouse asset issue , updated asset balances , create/decode exchange 					procedure and asset conversion
+
+	3.Retailstore - Send/Receive data regarding retailstore asset issue , updated asset balances and decode exchange 					procedure
+
+Request From UI to Blockchain Nodes
+====================================
+
+	1.IssueAsset
+	=============
+		1.Issue Farmland Asset
+
+			Channel : "farmland"
+			Request : { "messagecode":"issueasset","messagetype":"req"}
+
+		2.Issue Warehouse Asset
+
+			Channel : "warehouse"
+			Request : { "messagecode":"issueasset","messagetype":"req"}
+
+		3.Issue Retailstore Asset
+
+			Channel : "retailstore"
+			Request : { "messagecode":"issueasset","messagetype":"req"}
+
+	2.Create Exchange
+	==================
+		1.createExchange-farm-warehouse
+
+			Channel : "farmland"
+			Request : {"messagetype":"req","messagecode":"createexchange"}
+
+		2.createExchange-warehouse-retailstore
+
+			Channel : "warehouse"
+			Request : {"messagetype":"req","messagecode":"createexchange"} 
+
+	3.Decode-Exchange
+	==================
+		1.Decode-Exchange-farm-warehouse
+
+			Channel : "warehouse"
+			Request : {
+						"messagetype":"req",
+						"messagecode":"decodeexchange",
+						"hexblob": < HEX BLOB RETURNED IN CREATE EXCHANGE PROCESS > 
+					}
+			Example : {
+						"messagetype":"req",
+						"messagecode":"decodeexchange",
+						"hexblob":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+					}
+
+		2.Decode-Exchange-warehouse-retailstore
+
+			Channel : "retailstore"
+			Request : {
+						"messagetype":"req",
+						"messagecode":"decodeexchange",
+						"hexblob": < HEX BLOB RETURNED IN CREATE EXCHANGE PROCESS >
+					}
+			Example : {
+						"messagetype":"req",
+						"messagecode":"decodeexchange",
+						"hexblob":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+					}
+
+	4.Convert Asset
+	================
+
+		1.Convert asset
+
+			Channel : "warehouse"
+			Request : { "messagecode":"convertasset","messagetype":"req"}
+
+	5.Get Updated Balances
+	=======================
+
+		1.Fetch Updates
+
+			Channel : "farmland","warehouse","retailstore"
+			Request : { "messagecode":"updateassetbalance","messagetype":"req"} 
+
+
+Response From BlockChain nodes to UI
+=====================================
+
+	1.Issue Asset
+	==============
+
+		1.Issue	Farmland Asset
+	
+			Channel  : "farmland"
+			Response :	{
+						    "node": "farmland",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": < HEX VALUE >,
+						    	"assetdescription": {
+						      		"assetname": < ASSET NAME >,
+						      		"assetquantity": < ASSET QUANTITY>,
+						      		"assetmetrics": < UNITS/METRICS >,
+						      		"assetowner": < OWNER NAME >
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+			Example  :  {
+						    "node": "farmland",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": "f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69",
+						    	"assetdescription": {
+						      		"assetname": "crop",
+						      		"assetquantity": 1000,
+						      		"assetmetrics": "kgs",
+						      		"assetowner": "Mark-Farmer"
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+
+		2.Issue	Warehouse Asset
+		
+			Channel  : "warehouse"
+			Response :	{
+						    "node": "warehouse",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": < HEX VALUE >,
+						    	"assetdescription": {
+						      		"assetname": < ASSET NAME >,
+						      		"assetquantity": < ASSET QUANTITY>,
+						      		"assetmetrics": < UNITS/METRICS >,
+						      		"assetowner": < OWNER NAME >
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+			Example  :  {
+						    "node": "warehouse",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": "f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69",
+						    	"assetdescription": {
+						      		"assetname": "crop",
+						      		"assetquantity": 1000,
+						      		"assetmetrics": "kgs",
+						      		"assetowner": "Mark-Farmer"
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+
+		3.Issue	Reailstore Asset
+		
+			Channel  : "retailstore"
+			Response :	{
+						    "node": "retailstore",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": < HEX VALUE >,
+						    	"assetdescription": {
+						      		"assetname": < ASSET NAME >,
+						      		"assetquantity": < ASSET QUANTITY>,
+						      		"assetmetrics": < UNITS/METRICS >,
+						      		"assetowner": < OWNER NAME >
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+			Example  :  {
+						    "node": "retailstore",
+						    "messagecode": "issueasset",
+						    "message": {
+						    	"op_return": "f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69",
+						    	"assetdescription": {
+						      		"assetname": "crop",
+						      		"assetquantity": 1000,
+						      		"assetmetrics": "kgs",
+						      		"assetowner": "Mark-Farmer"
+						   		}
+						  	},
+						    "messagetype": "resp"
+						}
+
+	2.Create Exchange
+	==================
+
+		1.createExchange-farm-warehouse
+
+			Channel  : "farmland"
+			Response :	{
+						    "node":"farmland",
+						    "messagecode":"createexchange",
+						    "messagetype":"resp",
+						    "message":{
+						        "op_return": < HEX VALUE >,
+						        "hexblob": < HEX VALUE >
+						    }
+						}
+			Example  :  {
+						    "node":"farmland",
+						    "messagecode":"createexchange",
+						    "messagetype":"resp",
+						    "message":{
+						        "op_return":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69",
+						        "hexblob":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+						    }
+						}
+
+		2.createExchange-warehouse-retailstore
+
+			Channel  : "warehouse"
+			Response :	{
+						    "node":"warehouse",
+						    "messagecode":"createexchange",
+						    "messagetype":"resp",
+						    "message":{
+						        "op_return": < HEX VALUE >,
+						        "hexblob": < HEX VALUE >
+						    }
+						}
+			Example  :  {
+						    "node":"warehouse",
+						    "messagecode":"createexchange",
+						    "messagetype":"resp",
+						    "message":{
+						        "op_return":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69",
+						        "hexblob":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+						    }
+						}
+
+	3.Decode-Exchange
+	==================
+		
+		1.Decode-Exchange-farm-warehouse
+
+			Channel  : "warehouse"
+			Response :	{
+							"node":"warehouse",
+							"messagecode":"decodeexchange",
+							"messagetype":"resp",
+							"message":{
+								"exchange_details":{
+								    "offer" : {
+								        "amount" : < VALUE >,
+								        "assets" : [
+								            {
+								                "name" : < NAME OF ASSET >,
+								                "assetref" : < ASSET REF NUMBER >,
+								                "qty" : < ASSET QUANTITY >
+								            }
+								        ]
+								    },
+								    "ask" : {
+								        "amount" : < VALUE >,
+								        "assets" : [
+								            {
+								                "name" : < NAME OF ASSET >,
+								                "assetref" : < ASSET REF NUMBER >,
+								                "qty" : < ASSET QUANTITY >
+								            }
+								        ]
+								    },
+								    "requiredfee" : 0.00000000,
+								    "candisable" : false,
+								    "cancomplete" : true,
+								    "complete" : false
+								},
+								"exchange_addedtochain": < HEX VALUE >
+							}
+						}
+			Example  :  {
+							"node":"retailstore",
+							"messagecode":"decodeexchange",
+							"messagetype":"resp",
+							"message":{
+								"exchange_details":{
+								    "offer" : {
+								        "amount" : 0.00000000,
+								        "assets" : [
+								            {
+								                "name" : "crop",
+								                "assetref" : "38-266-49060",
+								                "qty" : 20.00000000
+								            }
+								        ]
+								    },
+								    "ask" : {
+								        "amount" : 0.00000000,
+								        "assets" : [
+								            {
+								                "name" : "warehousemoney",
+								                "assetref" : "59-266-6926",
+								                "qty" : 20.00000000
+								            }
+								        ]
+								    },
+								    "requiredfee" : 0.00000000,
+								    "candisable" : false,
+								    "cancomplete" : true,
+								    "complete" : false
+								},
+								"exchange_addedtochain":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+							}
+						}
+
+		2.Decode-Exchange-warehouse-retailstore
+
+			Channel  : "retailstore"
+			Response :	{
+							"node":"retailstore",
+							"messagecode":"decodeexchange",
+							"messagetype":"resp",
+							"message":{
+								"exchange_details":{
+								    "offer" : {
+								        "amount" : < VALUE >,
+								        "assets" : [
+								            {
+								                "name" : < NAME OF ASSET >,
+								                "assetref" : < ASSET REF NUMBER >,
+								                "qty" : < ASSET QUANTITY >
+								            }
+								        ]
+								    },
+								    "ask" : {
+								        "amount" : < VALUE >,
+								        "assets" : [
+								            {
+								                "name" : < NAME OF ASSET >,
+								                "assetref" : < ASSET REF NUMBER >,
+								                "qty" : < ASSET QUANTITY >
+								            }
+								        ]
+								    },
+								    "requiredfee" : 0.00000000,
+								    "candisable" : false,
+								    "cancomplete" : true,
+								    "complete" : false
+								},
+								"exchange_addedtochain": < HEX VALUE >
+							}
+						}
+			Example  :  {
+							"node":"retailstore",
+							"messagecode":"decodeexchange",
+							"messagetype":"resp",
+							"message":{
+								"exchange_details":{
+								    "offer" : {
+								        "amount" : 0.00000000,
+								        "assets" : [
+								            {
+								                "name" : "crop",
+								                "assetref" : "38-266-49060",
+								                "qty" : 20.00000000
+								            }
+								        ]
+								    },
+								    "ask" : {
+								        "amount" : 0.00000000,
+								        "assets" : [
+								            {
+								                "name" : "warehousemoney",
+								                "assetref" : "59-266-6926",
+								                "qty" : 20.00000000
+								            }
+								        ]
+								    },
+								    "requiredfee" : 0.00000000,
+								    "candisable" : false,
+								    "cancomplete" : true,
+								    "complete" : false
+								},
+								"exchange_addedtochain":"f328eea25915745de86a3d77f24e6e3ef913a47d185ed33499dea7d7914f7f69"
+							}
+						}
+
+	4.Get Updated Balances
+	=======================
+
+		1.Fetch Farmland Updates
+
+			Channel  : "farmland"
+			Response : {
+						    "node": "farmland",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      },
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+			Example : {
+						    "node": "farmland",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": "warehousemoney",
+							        "assetquantity": 20,
+							        "assetmetrics": "dollars",
+							        "assetowner": "John-Distributor"
+							      },
+							      {
+							        "assetname": "crop",
+							        "assetquantity": 980,
+							        "assetmetrics": "kgs",
+							        "assetowner": "Mark-Farmer"
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+
+		2.Fetch Warehouse Updates
+
+			Channel  : "warehouse"
+			Response : {
+						    "node": "warehouse",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      },
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+			Example : {
+						    "node": "warehouse",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": "warehousemoney",
+							        "assetquantity": 20,
+							        "assetmetrics": "dollars",
+							        "assetowner": "John-Distributor"
+							      },
+							      {
+							        "assetname": "crop",
+							        "assetquantity": 980,
+							        "assetmetrics": "kgs",
+							        "assetowner": "Mark-Farmer"
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+
+		3.Fetch retailstore Updates
+
+			Channel  : "retailstore"
+			Response : {
+						    "node": "retailstore",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      },
+							      {
+							        "assetname": < ASSET NAME >,
+							        "assetquantity": < ASSET QUANTITY >,
+							        "assetmetrics": < UNITS / METRICS >,
+							        "assetowner": < OWNER NAME >
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+			Example : {
+						    "node": "retailstore",
+						  	"messagecode": "updateassetbalance",
+						  	"message": {
+						    	"op_return": [
+							      {
+							        "assetname": "warehousemoney",
+							        "assetquantity": 20,
+							        "assetmetrics": "dollars",
+							        "assetowner": "John-Distributor"
+							      },
+							      {
+							        "assetname": "crop",
+							        "assetquantity": 980,
+							        "assetmetrics": "kgs",
+							        "assetowner": "Mark-Farmer"
+							      }
+							    ]
+							},
+							"messagetype": "resp"
+						}
+
+Error message from blockchain node
+=================================== 
+
+	1.Error Handling Type 1 ( Top Level error in Multichain class)
+
+		Channel : farmland,warehouse,retailstore
+		Format	:   "message":{
+						"op_return": false
+					}
+		Example	:   "message":{
+						"op_return": false
+					}
+
+	2.Error Handling Type 2 (Top level error in each nodes(farmand,warehouse,retailstore))
+
+		Channel : farmland,warehouse,retailstore
+		Format	:   "message":{
+						"op_return":"error"
+					}
+		Example	:   "message":{
+						"op_return":"error"
+					}
+
+	3.Error Handling Type 3 ( API Level error)
+
+		Channel : farmland,warehouse,retailstore
+		Format	:   "message":{
+						"op_return":{
+							"id": < ID >,
+							"result": none,
+							"error":{
+								"message": < ERROR MESSAGE >,
+								"code": < ERROR CODE >
+							}
+						}
+					}
+
+		Example	:   "message":{
+						"op_return":{
+							"id": 45,
+							"result": none,
+							"error":{
+								"message": "Insufficient funds",
+								"code": -9
+							}
+						}
+					}
+
+	

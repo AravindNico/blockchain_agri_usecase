@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1170px" height="490px" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1170 490" preserveAspectRatio="xMidYMid meet" >
+			<defs id="svgEditorDefs">
+				<polygon id="svgEditorShapeDefs" fill="khaki" stroke="black" style="vector-effect: non-scaling-stroke; stroke-width: 1px;"/>
+			</defs>
+			<rect id="svgEditorBackground" x="0" y="0" width="1170" height="490" style="fill: none; stroke: none;"/>
+			<image x="119.033" y="131.472" id="farm" preserveAspectRatio="xMidYMid meet" xlink:href="img/farm.jpeg" width="69" height="45.9712" stroke="black" style="stroke-width: 1px;" fill="khaki" transform="matrix(1.93616, 0, 0, 1.93616, -145.105, -129.19)"/>
+			<image x="494.96" y="174.47" id="warehouse" preserveAspectRatio="xMidYMid meet" xlink:href="img/warehouse.jpg" width="60" height="36.6777" stroke="black" style="stroke-width: 1px;" fill="khaki" transform="matrix(2.68431, 0, 0, 2.68431, -907.268, -344.398)"/>
+			<image x="835.712" y="134.303" id="supermarket" preserveAspectRatio="xMidYMid meet" xlink:href="img/supermark.jpg" width="98" height="48.6436" stroke="black" style="stroke-width: 1px;" fill="khaki" transform="matrix(1.40417, 0, 0, 1.40417, -333.441, -52.5422)"/>
+			<image x="984" y="169" id="people" preserveAspectRatio="xMidYMid meet" xlink:href="img/people.jpg" width="60" height="32.8767" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+			<line id="e232_line" x1="226" y1="177" x2="426" y2="176" stroke="black" style="stroke-width: 1px; fill: none;"/>
+			<line id="e246_line" x1="595" y1="173" x2="833" y2="172" stroke="black" style="stroke-width: 1px; fill: none;"/>
+			<circle id="step_1_circle" cx="145" cy="251" style="stroke-width: 1px;" stroke="black" r="10" fill="khaki"/>
+			<circle id="step_2_circle" cx="521" cy="250" style="stroke-width: 1px;" stroke="black" r="10" fill="khaki"/>
+			<circle id="step_3_circle" cx="911" cy="248" style="stroke-width: 1px;" stroke="black" r="10" fill="khaki"/>
+			<path d="M134.517,-2.91667 l-8.33598,-10.9375 v6.97917 h-127.893 v8.64583 h127.893 v6.97917 z M-3.72099,-6.875 h-4.48048 v9.375 h4.48048 z M-20.3639,-6.875 h9.06646 v9.375 h-9.06646 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="arrow1" transform="matrix(2.16686, 0, 0, 1.37143, 208.5, 253)" fill="khaki"/>
+			<path d="M312.964,-2.39582 l-8.33598,-10.9375 v6.97917 h-127.893 v8.64583 h127.893 v6.97917 z M174.726,-6.35415 h-4.48048 v9.375 h4.48048 z M158.083,-6.35415 h9.06646 v9.375 h-9.06646 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="arrow2" transform="matrix(2.16686, 0, 0, 1.37143, 208.5, 253)" fill="khaki"/>
+			<text dy="-0.5em" fill="black" style="font-family: Arial; font-size: 20px;" id="e1044_texte">
+				<textPath id="e1043_textPath" xlink:href="#e1006_shape"/>
+			</text>
+		</svg>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <title>BlockChain - AGRI </title> 
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.8.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./stylesheet/style.css" />
+		<!-- // <script src="./js/blockIndex.js"></script> -->
+		<script src="./js/index.js"></script>
+	</head>
+	<style type="text/css">
+		#tableDiv{
+			min-height: 180px;
+		}
+		#exTableDiv{
+			min-height: 130px;
+		}
+		#tableContainer{
+			height: 200px;
+        	overflow: scroll;
+        	overflow-y: scroll;
+        	overflow-x: hidden; 
+		}
+		
+	</style>
+	<body>
+		
+		<div class="container">
+		    <div class="row">
+			    <div id="issueAsset" class="col-sm-4 col-md-4 col-lg-4">
+			        <h3>Issue Asset</h3>
+			        <ul>
+						<input type="radio" name="IssueAsset" value="farm" id="IssueAsset-farm"> Farm Land<br>
+			        	<input type="radio" name="IssueAsset" value="warehouse" id="IssueAsset-warehouse"> Warehouse<br>
+						<input type="radio" name="IssueAsset" value="retailshop" id="IssueAsset-retailshop"> Retailstore<br>
+					</ul>
+			    </div>
+			    <div id="createExchange" class="col-sm-4 col-md-4 col-lg-4">
+			        <h3>Create Exchange</h3>
+			        <ol>
+			        	<li>Farmland-Warehouse
+			        		<ul>
+					        	<input type="radio" name="createExchange" value="createExchange-farm-warehouse" id="createExchange-farm-warehouse"> Farmer Distributing Goods<br>
+								<input type="radio" name="createExchange" value="Decode-Exchange-farm-warehouse" id="Decode-Exchange-farm-warehouse"> Distributer Accepting Goods<br>
+							</ul>
+			        	</li>
+			        	<li>Warehouse-Retailstore
+			        		<ul>
+					        	<input type="radio" name="createExchange" value="createExchange-warehouse-shop" id="createExchange-warehouse-shop"> Warehouse Distributing Goods<br>
+								<input type="radio" name="createExchange" value="Decode-Exchange-warehouse-shop" id="Decode-Exchange-warehouse-shop"> Retailer Accepting Goods<br>
+							</ul>
+			        	</li>
+			        </ol>
+			    </div>
+			    <div id="transactions" class="col-sm-4 col-md-4 col-lg-4">
+			        <h3>Asset Processing</h3>
+			        <button id="startProcess" type="button" class="btn btn-primary">Asset Process</button>
+			        <br><br>
+			        <button id="getUpdatebal" type="button" class="btn btn-primary">Get Updated Bal</button>
+
+			    </div>
+		    </div>
+		</div>
+		<div class="container">
+		    <div class="row">
+		    	<div class="col-sm-12 col-md-12 col-lg-12">
+					<svg xmlns="http://www.w3.org/2000/svg" width="1170px" height="180px" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1170 180" preserveAspectRatio="xMidYMid meet" >
+						<defs id="svgEditorDefs">
+							<polygon id="svgEditorShapeDefs" fill="khaki" stroke="black" style="vector-effect: non-scaling-stroke; stroke-width: 1px;"/>
+						</defs>
+						<rect id="svgEditorBackground" x="0" y="0" width="1170" height="180" style="fill: none; stroke: none;"/>
+						<path d="M86.5185,-2 v-4.37037 l5.48148,5.77778 l-5.48148,5.77778 v-4.07407 h-81.3333 v-3.11111 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="arrow1" transform="matrix(3.375, 0, 0, 3.375, 155.5, 153.5)" fill="khaki"/>
+						<path d="M211.185,-2.37037 v-4.37037 l5.48148,5.77778 l-5.48148,5.77778 v-4.07407 h-81.3333 v-3.11111 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="arrow2" transform="matrix(3.375, 0, 0, 3.375, 155.5, 153.5)" fill="khaki"/>
+						<circle id="step_2_circle" cx="527" cy="151" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+						<circle id="step_1_circle" cx="144" cy="153" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+						<circle id="step_3_circle" cx="934" cy="150" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+						<image x="87" y="37" id="farm" preserveAspectRatio="xMidYMid meet" xlink:href="img/farm.jpeg" width="126" height="83.9475" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+						<image x="450" y="45" id="warehouse" preserveAspectRatio="xMidYMid meet" xlink:href="img/warehouse.jpg" width="146" height="89.2492" stroke="black" style="stroke-width: 1px;" fill="khaki" transform="matrix(1.07831, 0, 0, 1.10069, -34.4578, -14.524)"/>
+						<image x="862" y="45" id="supermaket" preserveAspectRatio="xMidYMid meet" xlink:href="img/supermark.jpg" width="130" height="64.5273" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+						<image x="1010" y="71" id="people" preserveAspectRatio="xMidYMid meet" xlink:href="img/people.jpg" width="67" height="36.7123" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+						<line id="e503_line" x1="220" y1="85" x2="450" y2="85" stroke="black" style="stroke-width: 1px; fill: none;"/>
+						<line id="e517_line" x1="616" y1="78" x2="858" y2="78" stroke="black" style="stroke-width: 1px; fill: none;"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+		<div id="tableContainer">
+			<strong><h3>Assets</h3></strong>
+			<div class="container-fluid">
+			    <div class="row">
+			    	<div id="tableDiv" class="col-sm-4 col-md-4 col-lg-4" style="background-color:#39a979;">
+			    		<div class="table-responsive ">
+			    		<h4>FarmLand</h4>          
+						    <table id="FarmLand-Table" class="table table-hover ">
+						    	
+						    </table>
+						</div>
+			    	</div>
+			    	
+			    	<div id="tableDiv" class="col-sm-4 col-md-4 col-lg-4" style="background-color:#fff3e1;">
+			    		<div class="table-responsive">
+			    		<h4>WareHouse</h4>          
+						    <table id="Warehouse-Table" class="table table-hover">
+						    	
+						    </table>
+						</div>
+			    	</div>
+			    	
+			    	<div id="tableDiv" class="col-sm-4 col-md-4 col-lg-4" style="background-color:#9EB9D4;">
+			    		<div class="table-responsive">
+			    		<h4>Retail Store</h4>          
+						    <table id="Retailshop-Table" class="table table-hover">
+						       
+				            </table>
+						</div>
+			    	</div>
+			    </div>
+			</div>
+			<hr>
+			<strong><h3>Exchanges</h3></strong>
+			<div class="container">
+				<div class="row">
+					<div id="exTableDiv" class="col-sm-6 col-md-6 col-lg-6" style="background-color:#708ece;">
+			    		<div class="table-responsive"> 
+			    		<h4>Farm-Warehouse Exchange</h4>         
+						    <table id="Farm-Warehouse-Table" class="table table-hover">
+						    	
+						    </table>
+						</div>
+			    	</div>
+					<div id="exTableDiv" class="col-sm-6 col-md-6 col-lg-6" style="background-color:#e0e6b0;">
+			    		<div class="table-responsive">  
+			    		<h4>Warehouse-Retailstore Exchange</h4>        
+						    <table id="Warehouse-Retailshop-Table" class="table table-hover">
+						    	
+						    </table>
+						</div>
+			    	</div>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1170px" height="180px" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1170 180" preserveAspectRatio="xMidYMid meet" >
+	<defs id="svgEditorDefs">
+		<polygon id="svgEditorShapeDefs" fill="khaki" stroke="black" style="vector-effect: non-scaling-stroke; stroke-width: 1px;"/>
+	</defs>
+	<rect id="svgEditorBackground" x="0" y="0" width="1170" height="180" style="fill: none; stroke: none;"/>
+	<path d="M86.5185,-2 v-4.37037 l5.48148,5.77778 l-5.48148,5.77778 v-4.07407 h-81.3333 v-3.11111 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="e1_shape" transform="matrix(3.375, 0, 0, 3.375, 155.5, 153.5)" fill="khaki"/>
+	<path d="M211.185,-2.37037 v-4.37037 l5.48148,5.77778 l-5.48148,5.77778 v-4.07407 h-81.3333 v-3.11111 z" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" stroke="black" id="e173_shape" transform="matrix(3.375, 0, 0, 3.375, 155.5, 153.5)" fill="khaki"/>
+	<circle id="e187_circle" cx="527" cy="151" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+	<circle id="e200_circle" cx="144" cy="153" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+	<circle id="e212_circle" cx="934" cy="150" style="stroke-width: 1px;" stroke="black" r="10.4403" fill="khaki"/>
+	<image x="87" y="37" id="e340_image" preserveAspectRatio="xMidYMid meet" xlink:href="img/farm.jpeg" width="126" height="83.9475" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+	<image x="450" y="45" id="e356_image" preserveAspectRatio="xMidYMid meet" xlink:href="img/warehouse.jpg" width="146" height="89.2492" stroke="black" style="stroke-width: 1px;" fill="khaki" transform="matrix(1.07831, 0, 0, 1.10069, -34.4578, -14.524)"/>
+	<image x="862" y="45" id="e372_image" preserveAspectRatio="xMidYMid meet" xlink:href="img/supermark.jpg" width="130" height="64.5273" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+	<image x="1010" y="71" id="e388_image" preserveAspectRatio="xMidYMid meet" xlink:href="img/people.jpg" width="67" height="36.7123" stroke="black" style="stroke-width: 1px;" fill="khaki"/>
+	<line id="e503_line" x1="220" y1="85" x2="450" y2="85" stroke="black" style="stroke-width: 1px; fill: none;"/>
+	<line id="e517_line" x1="616" y1="78" x2="858" y2="78" stroke="black" style="stroke-width: 1px; fill: none;"/>
+</svg>
